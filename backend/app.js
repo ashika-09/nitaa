@@ -12,9 +12,8 @@ app.use(cookieParser());
 app.use(
   cors({
 
-    origin: ["https://task-manager-5q4m.vercel.app",
-      "https://task-manager-fawn-mu.vercel.app"
-    ],
+    origin: "https://nitaa-two.vercel.app/",
+    
     credentials: true,
   })
 );
