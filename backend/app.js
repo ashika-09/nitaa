@@ -9,24 +9,8 @@ const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = [
-  "https://nitaa-two.vercel.app",
-  "https://task-manager-fawn-mu.vercel.app"
-];
-
 app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps, Postman)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
+  cors()
 );
 app.use("/", authRouter);
 app.use("/tasks", taskRouter);
